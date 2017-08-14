@@ -36,7 +36,7 @@ public class MessageService {
 	}
 
 	public Message removeMessage(long l) {
-
+		return null;
 	}
 
 	public Message updateMessage(Message message) {
