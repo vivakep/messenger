@@ -8,25 +8,28 @@ import com.bsm.rest.messenger.model.Message;
 import com.bsm.rest.messenger.persistence.EntityRepo;
 
 public class MessageService {
-	private Map<Long, Message> messages = EntityRepo.getMessages();
+	private Map<Long, Message> messages;
 
-	public List<Message> getAllMessages() {
-		return new ArrayList<Message>(messages.values());
-		/*
-		 * Message m1 = new Message(1, "hello world", "vivake"); Message m2 =
-		 * new Message(2, "hello world again", "rashmie"); Message m3 = new
-		 * Message(3, "hello world again and again", "pari");
-		 * 
-		 * List<Message> al = new ArrayList<>(); al.add(m1); al.add(m2);
-		 * al.add(m3);
-		 * 
-		 * return al;
-		 */
+	public MessageService() {
+		System.out.println("MessageService constructor called!");
+		messages = EntityRepo.getMessages();
+		messages.put(1L, new Message(1L, "hello world", "vivake"));
+		messages.put(2L, new Message(2L, "hello world again", "rashmie"));
+		messages.put(3L, new Message(3L, "hello world again and again", "pari"));
+		messages.put(4L, new Message(4L, "hello world poo you!", "TQ"));
+
 	}
 
-	public Message getMessage(long l) {
+	public List<Message> getAllMessages() {
+		/*
+		 * System.out.println("get messages called"); ArrayList<Message> al = new
+		 * ArrayList<>(); al.addAll(messages.values()); return al;
+		 */ return new ArrayList<>(messages.values());
+	}
+
+	public Message getMessage(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return messages.get(id);
 	}
 
 	public Message addMessage(Message message) {
@@ -35,11 +38,12 @@ public class MessageService {
 		return message;
 	}
 
-	public Message removeMessage(long l) {
-		return null;
+	public Message removeMessage(long id) {
+		return messages.get(id);
 	}
 
 	public Message updateMessage(Message message) {
+		messages.put(message.getId(), message);
 		return message;
 	}
 

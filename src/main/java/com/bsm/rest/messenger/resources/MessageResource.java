@@ -13,7 +13,7 @@ import com.bsm.rest.messenger.service.MessageService;;
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Path("messages")
+@Path("/messages")
 public class MessageResource {
 	MessageService msgService = new MessageService();
 
