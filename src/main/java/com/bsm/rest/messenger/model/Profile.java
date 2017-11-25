@@ -10,13 +10,13 @@ public class Profile {
 	private String firstName, lastName, profileName;
 	private Date createDate;
 
-	public Profile(long id, String firstName, String lastName, String profileName, Date createDate) {
+	public Profile(long id, String firstName, String lastName, String profileName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.profileName = profileName;
-		this.createDate = createDate;
+		this.createDate = new Date();
 	}
 
 	public Profile() {
